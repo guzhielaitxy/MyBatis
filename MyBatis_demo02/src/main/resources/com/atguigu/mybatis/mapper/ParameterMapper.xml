@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.ParameterMapper">
+
+    <!--      List<Admin> getAll();  -->
+    <select id="getAll" resultType="Admin">
+        select * from tb_admin
+    </select>
+
+<!--    Admin getAdminById(int id);-->
+    <select id="getAdminByUsername" resultType="Admin">
+        select * from tb_admin where name='${asf}'
+    </select>
+
+<!--    Admin checkLogin(String name,String password);-->
+    <select id="checkLogin" resultType="Admin">
+        select * from tb_admin where name=#{arg0} and password=#{arg1}
+    </select>
+
+<!--    Admin checkLoginByMap(Map map);-->
+    <select id="checkLoginByMap" resultType="Admin">
+        select * from tb_admin where name=#{name} and password=#{password}
+    </select>
+
+<!--    void insertAdmin(Admin admin);-->
+    <insert id="insertAdmin" >
+        insert into tb_admin values(null,#{name},#{gender},#{password},#{email},#{telephone},#{address},null)
+    </insert>
+
+<!--    Admin checkLoginByParameter(@Param("name") String name, @Param("password") String password);-->
+    <select id="checkLoginByParameter" resultType="Admin">
+        select * from tb_admin where name=#{name} and password=#{password}
+    </select>
+
+</mapper>

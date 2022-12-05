@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.SqlMapper">
+    <!--    List<Admin> getAdminByLike(@Param("name") String name);-->
+    <select id="getAdminByLike" resultType="Admin">
+<!--      select * from tb_admin where name like '%#{name}%'  -->
+      <!--  select * from tb_admin where name like concat('%',#{name},'%')  -->
+        select * from tb_admin where name like "%"#{name}"%"
+    </select>
+
+<!--    int deleteAdmin(@Param("ids") String ids);-->
+
+    <delete id="deleteAdmin">
+        delete from tb_admin where id in(${ids})
+    </delete>
+
+<!--    void insert (@Param("admin") Admin admin);-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_admin values(null,#{admin.name},#{admin.gender},#{admin.password},#{admin.email},#{admin.telephone},#{admin.address},null)
+    </insert>
+</mapper>

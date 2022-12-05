@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.AdminMapper">
+
+    <!--int insertAdmin();-->
+    <insert id="insertAdmin">
+        insert into tb_admin values(null,'白玉京','男','abc123','长生剑@qq.com','12345678','江湖',null)
+    </insert>
+
+
+
+<!--    int updateAdmin();-->
+
+    <update id="updateAdmin">
+        update tb_admin set name='楚留香' where id=159
+    </update>
+<!--    int deleteAdmin();-->
+    <delete id="deleteAdmin">
+        delete from tb_admin where id=161
+    </delete>
+    <!--    Admin selectAdmin();-->
+    <select id="selectAdmin" resultType="com.atguigu.mybatis.pojo.Admin">
+        select * from tb_admin where id=159
+    </select>
+
+<!--    List<Admin> selectALL();-->
+    <select id="selectAll" resultType="Admin">
+        select * from tb_admin
+    </select>
+</mapper>

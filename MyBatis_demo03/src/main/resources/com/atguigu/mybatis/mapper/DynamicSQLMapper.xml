@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.DynamicSQLMapper">
+
+    <!--    Admin getAdminByConditions();-->
+    <select id="getAdminByConditions" resultType="Admin">
+        select * from tb_admin
+        <trim prefix="where" suffixOverrides="and|or">
+            <if test="name!=null and name!=''">
+                name=#{name} and
+            </if>
+            <if test="gender !=null and gender!=''">
+               gender=#{gender}
+            </if>
+        </trim>
+    </select>
+
+</mapper>
