@@ -32,5 +32,6 @@ public class Person {
     public Person() {
         System.out.println("hot-fix");
         System.out.println("master-commit");
+        System.out.println("hot-fix");
     }
 }
