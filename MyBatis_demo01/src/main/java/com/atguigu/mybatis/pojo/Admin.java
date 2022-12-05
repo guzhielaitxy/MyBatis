@@ -74,9 +74,6 @@ public class Admin {
         this.telephone = telephone;
     }
 
-    public String getAddress() {
-        return address;
-    }
 
     public void setAddress(String address) {
         this.address = address;
